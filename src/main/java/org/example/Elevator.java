@@ -4,10 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @EqualsAndHashCode
@@ -37,14 +34,11 @@ public class Elevator {
     }
 
     /**
-     * For add or remove passengers to/from elevator, use
-     * addPassenger, removePassenger.
-     * This method return COPY of passenger list
-     *
-     * @return copy of passenger list
+     * Returns an unmodifiable view on the list of elements.
+     * Changes in this object will be visible in the returned list.
      */
-    public ArrayList<Passenger> getPassengers() {
-        return (ArrayList<Passenger>) passengers.clone();
+    public List<Passenger> getPassengers() {
+        return Collections.unmodifiableList(passengers);
     }
 
     public int getPassengersSize() {
